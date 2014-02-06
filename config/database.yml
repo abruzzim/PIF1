@@ -1,0 +1,25 @@
+# PostgreSQL. Versions 8.2 and up are supported.
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: pif1_development
+  pool: 5
+  username: abruzzim
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: pif1_test
+  pool: 5
+  username: abruzzim
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: pif1_production
+  pool: 5
+  username: abruzzim
+  password:
