@@ -59,10 +59,10 @@ ActiveRecord::Schema.define(:version => 20140206204214) do
   end
 
   create_table "patients", :force => true do |t|
-    t.string   "fname",      :limit => 25
-    t.string   "lname",      :limit => 25
-    t.date     "dob"
-    t.string   "gender",     :limit => 1
+    t.string   "fname",      :limit => 25, :null => false
+    t.string   "lname",      :limit => 25, :null => false
+    t.date     "dob",                      :null => false
+    t.string   "gender",     :limit => 1,  :null => false
     t.string   "ssn",        :limit => 9
     t.string   "race",       :limit => 25
     t.string   "ethnicity",  :limit => 25

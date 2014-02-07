@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Patient.delete_all
+Patient.create({
+  fname: "Mario",
+  lname: "Abruzzi",
+  dob: "1965-10-21",
+  gender: "M"
+  })
+puts "%SEED-I-PATIENTS, attempting to add patient row."
