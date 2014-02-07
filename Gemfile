@@ -6,14 +6,23 @@ gem 'rails', '3.2.16'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-gem 'pry'
-gem 'pry-rails'
-gem 'rspec'
-gem 'rspec-rails'
-gem 'capybara'
-gem 'faker'
 gem 'devise'
 
+group :development, :test do
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
+
+group :test do
+  gem 'faker'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'selenium-webdriver'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
