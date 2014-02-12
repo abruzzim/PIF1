@@ -8,7 +8,7 @@ class CreateAddresses < ActiveRecord::Migration
       t.string :state, :limit => 2
       t.string :zip, :limit => 5
       t.string :presort, :limit => 4
-      t.string :type, :limit => 25
+      t.string :adtype, :limit => 25
       t.integer :patient_id
       t.integer :emer_contact_id
       t.integer :pharmacy_id

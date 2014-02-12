@@ -1,0 +1,46 @@
+<% content_for :navbar do %>
+  <div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/patients">Patient Index</a></li>
+    </ul>
+    </nav>
+  </div>
+<% end %>
+
+<h2>Patient Display</h2>
+<div>
+  <table>
+    <tbody>
+      <tr>
+        <td><b>First Name:<b/></td>
+        <td><%= @patient.fname %></td>
+      </tr>
+      <tr>
+        <td><b>Last Name:</b></td>
+        <td><%= @patient.lname %></td>
+      </tr>
+      <tr>
+        <td><b>DOB:</b></td>
+        <td><%= @patient.dob %></td>
+      </tr>
+      <tr>
+        <td><b>Gender:</b></td>
+        <td><%= @patient.gender %></td>
+      </tr>
+      <tr>
+        <td><b>SSN:</b></td>
+        <td><%= @patient.ssn %></td>
+      </tr>
+      <tr>
+        <td><b>Race:</b></td>
+        <td><%= @patient.race %></td>
+      </tr>
+      <tr>
+        <td><b>Ethnicity:</b></td>
+        <td><%= @patient.ethnicity %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

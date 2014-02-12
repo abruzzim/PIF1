@@ -5,7 +5,7 @@ class CreatePhoneNumbers < ActiveRecord::Migration
       t.string :prefix, :limit => 3, :null => false
       t.string :number, :limit => 4, :null => false
       t.string :extension, :limit => 5
-      t.string :type, :limit => 25, :null => false
+      t.string :phtype, :limit => 25, :null => false
       t.integer :patient_id
       t.integer :emer_contact_id
       t.integer :pharmacy_id

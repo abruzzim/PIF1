@@ -1,0 +1,20 @@
+<%= form_for @patient do |f| %>
+  <fieldset>
+    <legend><span>Patient Info</span></legend>
+    <%#= f.label :fname %>
+    First Name: <%= f.text_field :fname %><br />
+    <%#= f.label :lname %>
+    Last Name: <%= f.text_field :lname %><br />
+    <%#= f.label :dob %>
+    Date of Birth: <%= f.text_field :dob %><br />
+    <%#= f.label :gender %>
+    Gender: <%= f.text_field :gender %><br />
+    <%#= f.label :ssn %>
+    SSN: <%= f.text_field :ssn %><br />
+    <%#= f.label :race %>
+    Race: <%= f.text_field :race %><br />
+    <%#= f.label :ethnicity %>
+    Ethnicity: <%= f.text_field :ethnicity %><br />
+    <%= f.submit %>
+  </fieldset>
+<% end %>

@@ -1,0 +1,94 @@
+<form accept-charset="UTF-8" action="/patients" class="new_patient" id="new_patient" method="post">
+  <fieldset>
+    <legend><span>Patient Information</span></legend>
+    <label for="patient_fname">First Name: </label>
+    <input id="patient_fname" name="fname" size="25" type="text" autofocus />
+    <label for="patient_lname">Last Name: </label>
+    <input id="patient_lname" name="lname" size="25" type="text" />
+    <br />
+    <label for="patient_dob">Date-of-Birth: </label>
+    <input id="patient_dob" name="dob" size="10" type="text" />
+    <label for="patient_gender">Gender: </label>
+    <input id="patient_gender" name="gender" size="1" type="text" list="gender" />
+    <datalist id="gender">
+      <option value="M">
+      <option value="F">
+    </datalist>
+    <label for="patient_ssn">SSN: </label>
+    <input id="patient_ssn" name="ssn" size="9" type="text" />
+    <br />
+    <label for="patient_race">Race: </label>
+    <input id="patient_race" name="race" size="25" type="text" list="race" />
+    <datalist id="race">
+      <option value="Americoid">
+      <option value="Australoid">
+      <option value="Caucasoid">
+      <option value="Khoesanoid">
+      <option value="Negroid">
+      <option value="Sinoid">
+    </datalist>
+    <label for="patient_ethnicity">Ethnicity: </label>
+    <input id="patient_ethnicity" name="ethnicity" size="25" type="text" list="ethnicity" />
+    <datalist id="ethnicity">
+      <option value="African">
+      <option value="African American">
+      <option value="Alaskan">
+      <option value="Arabian">
+      <option value="Armenian">
+      <option value="Asian (Pacific)">
+      <option value="Bangladeshi">
+      <option value="Bulgarian">
+      <option value="Burmese">
+      <option value="Cambodian">
+      <option value="Chinese">
+      <option value="Czechoslovakian">
+      <option value="Danish">
+      <option value="Dutch">
+      <option value="East European">
+      <option value="English (British)">
+      <option value="Estonian">
+      <option value="Ethiopian">
+      <option value="French">
+      <option value="German">
+      <option value="Greek">
+      <option value="Hawaiian">
+      <option value="Hebrew">
+      <option value="Hispanic (Spanish)">
+      <option value="Hungarian">
+      <option value="Icelandic">
+      <option value="Indian">
+      <option value="Indonesian">
+      <option value="Irish">
+      <option value="Italian">
+      <option value="Japanese">
+      <option value="Korean">
+      <option value="Latvian">
+      <option value="Laotian">
+      <option value="Lithuanian">
+      <option value="Malaysian">
+      <option value="Manx">
+      <option value="Middle Eastern">
+      <option value="Native American">
+      <option value="Norwegian">
+      <option value="Pakistani">
+      <option value="Polish">
+      <option value="Portuguese">
+      <option value="Russian">
+      <option value="Samoan">
+      <option value="Scottish">
+      <option value="Sri Lankan">
+      <option value="Swedish">
+      <option value="Swiss">
+      <option value="Thai">
+      <option value="Turkish">
+      <option value="Ukrainian">
+      <option value="Vietnamese">
+      <option value="Welsh">
+      <option value="Yugoslavian">
+    </datalist>
+    <br />
+    <input name="commit" type="submit" value="Create Patient" />
+  </fieldset>
+</form>
+
+

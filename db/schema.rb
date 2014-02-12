@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20140206204214) do
     t.string   "state",           :limit => 2
     t.string   "zip",             :limit => 5
     t.string   "presort",         :limit => 4
-    t.string   "type",            :limit => 25
+    t.string   "adtype",          :limit => 25
     t.integer  "patient_id"
     t.integer  "emer_contact_id"
     t.integer  "pharmacy_id"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(:version => 20140206204214) do
 
   create_table "email_addresses", :force => true do |t|
     t.string   "email",           :limit => 50
-    t.string   "type",            :limit => 25
+    t.string   "emtype",          :limit => 25
     t.integer  "patient_id"
     t.integer  "emer_contact_id"
     t.datetime "created_at",                    :null => false
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(:version => 20140206204214) do
     t.string   "prefix",          :limit => 3,  :null => false
     t.string   "number",          :limit => 4,  :null => false
     t.string   "extension",       :limit => 5
-    t.string   "type",            :limit => 25, :null => false
+    t.string   "phtype",          :limit => 25, :null => false
     t.integer  "patient_id"
     t.integer  "emer_contact_id"
     t.integer  "pharmacy_id"
