@@ -1,3 +1,21 @@
+# == Schema Information
+# Schema version: 20140206204214
+#
+# Table name: patients
+#
+# create_table "patients", :force => true do |t|
+#   t.string   "fname",      :limit => 25, :null => false
+#   t.string   "lname",      :limit => 25, :null => false
+#   t.date     "dob",                      :null => false
+#   t.string   "gender",     :limit => 1,  :null => false
+#   t.string   "ssn",        :limit => 9
+#   t.string   "race",       :limit => 25
+#   t.string   "ethnicity",  :limit => 25
+#   t.datetime "created_at",               :null => false
+#   t.datetime "updated_at",               :null => false
+# end
+
+
 class Patient < ActiveRecord::Base
   attr_accessible :dob, :ethnicity, :fname, :gender, :lname, :race, :ssn
 

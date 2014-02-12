@@ -45,7 +45,7 @@ class PatientsController < ApplicationController
 
     # @patient.save
 
-    redirect_to patients_path
+    redirect_to patients_path, :flash => { :success => "Patient record created." }
   end
   # GET /patients/1/edit
   def edit
@@ -63,13 +63,13 @@ class PatientsController < ApplicationController
       race:      params[:race],
       ethnicity: params[:ethnicity]
     )
-    redirect_to patients_path
+    redirect_to patients_path, :flash => { :success => "Patient record updated." }
   end
   # DELETE /patients/1
   def destroy
     patient = Patient.find(params[:id])
     patient.destroy
-    redirect_to patients_path
+    redirect_to patients_path, :flash => { :success => "Patient record deleted." }
   end
 
 end
