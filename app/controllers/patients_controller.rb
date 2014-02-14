@@ -10,59 +10,48 @@ class PatientsController < ApplicationController
   # GET /patients/1
   def show
     @patient = Patient.find(params[:id])
+    @phone_numbers = @patient.phone_numbers
+    @index = 1
   end
   # GET /patients/new
   def new
     @patient = Patient.new
-    # %w(Home Office Mobile).each do |phone_number_type|
-    #   @patient.phone_numbers.build(phtype: phone_number_type)
-    # end
   end
   # POST /patients
   def create
-    # @patient = Patient.new
-    # @patient.fname     = params[:fname]
-    # @patient.lname     = params[:lname]
-    # @patient.dob       = params[:dob]
-    # @patient.gender    = params[:gender]
-    # @patient.ssn       = params[:ssn]
-    # @patient.race      = params[:race]
-    # @patient.ethnicity = params[:ethnicity]
-
-    Patient.create(
-      fname:     params[:fname],
-      lname:     params[:lname],
-      dob:       params[:dob],
-      gender:    params[:gender],
-      ssn:       params[:ssn],
-      race:      params[:race],
-      ethnicity: params[:ethnicity]
+    @patient = Patient.create(
+      fname:     params[:patient][:fname].capitalize,
+      lname:     params[:patient][:lname].capitalize,
+      dob:       params[:patient][:dob],
+      gender:    params[:patient][:gender],
+      ssn:       params[:patient][:ssn],
+      race:      params[:patient][:race],
+      ethnicity: params[:patient][:ethnicity]
     )
-
-    # params["patient"]["phone_numbers_attributes"].each do |phone_number_attributes|
-    #   @patient.phone_numbers << phone_number_attributes
-    # end
-
-    # @patient.save
-
+    @patient.phone_numbers_attributes = params[:patient][:phone_numbers_attributes]
+    @patient.save
     redirect_to patients_path, :flash => { :success => "Patient record created." }
   end
   # GET /patients/1/edit
   def edit
     @patient = Patient.find(params[:id])
+    @phone_numbers = @patient.phone_numbers
+    @index = 1
   end
   # PUT /patients/1
   def update
     patient = Patient.find(params[:id])
     patient.update_attributes(
-      fname:     params[:fname],
-      lname:     params[:lname],
-      dob:       params[:dob],
-      gender:    params[:gender],
-      ssn:       params[:ssn],
-      race:      params[:race],
-      ethnicity: params[:ethnicity]
+      fname:     params[:patient][:fname].capitalize,
+      lname:     params[:patient][:lname].capitalize,
+      dob:       params[:patient][:dob],
+      gender:    params[:patient][:gender],
+      ssn:       params[:patient][:ssn],
+      race:      params[:patient][:race],
+      ethnicity: params[:patient][:ethnicity]
     )
+    patient.phone_numbers_attributes = params[:patient][:phone_numbers_attributes]
+    patient.save
     redirect_to patients_path, :flash => { :success => "Patient record updated." }
   end
   # DELETE /patients/1

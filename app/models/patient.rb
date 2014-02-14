@@ -3,7 +3,6 @@
 #
 # Table name: patients
 #
-# create_table "patients", :force => true do |t|
 #   t.string   "fname",      :limit => 25, :null => false
 #   t.string   "lname",      :limit => 25, :null => false
 #   t.date     "dob",                      :null => false
@@ -13,7 +12,6 @@
 #   t.string   "ethnicity",  :limit => 25
 #   t.datetime "created_at",               :null => false
 #   t.datetime "updated_at",               :null => false
-# end
 
 
 class Patient < ActiveRecord::Base
@@ -28,10 +26,27 @@ class Patient < ActiveRecord::Base
                             :before_remove => :before_remove_method,
                             :after_remove => :after_remove_method
 
+  # Ensure phone_numbers validation.
+  validates_associated :phone_numbers
+
+  # Enable nested attributes. This adds the #phone_numbers_attributes= method.
+  accepts_nested_attributes_for :phone_numbers
+
+  # Ensure required fields are present.
   validates :fname,  presence: true
   validates :lname,  presence: true
   validates :dob,    presence: true
   validates :gender, presence: true
+
+  # Ensure uniqueness of Last Name and DOB pairs.
+  validates_uniqueness_of :lname, scope: :dob
+
+  # Ensures first name contains only letters.
+  validates :fname, format: { with: /\A[a-zA-Z]+\z/, message: "First name must only contain letters." }
+  validates :lname, format: { with: /\A[a-zA-Z]+\z/, message: "Last name must only contain letters." }
+
+  # Ensure gender is included in enumerable object.
+  validates :gender, inclusion: { in: %w(M F), message: "%{value} is not a valid gender." }
 
   def name
     [fname, lname].join(' ')
@@ -43,6 +58,15 @@ class Patient < ActiveRecord::Base
 
   def before_add_method(phone_number)
     puts "%PATIENT-I-BEFORE_ADD, phone_number association callback called."
+    # Remove any phone_number instances that do not have required fields
+    # before returning to the controller.
+    if (phone_number.areacode == "") ||
+       (phone_number.prefix == "") ||
+       (phone_number.number == "") ||
+       (phone_number.phtype == "")
+      phone_number.destroy
+      puts "%PATIENT-I-BEFORE_ADD, phone_number instance destroyed."
+    end
   end
 
   def after_add_method(phone_number)

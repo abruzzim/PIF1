@@ -41,6 +41,13 @@
         <td><b>Ethnicity:</b></td>
         <td><%= @patient.ethnicity %></td>
       </tr>
+      <% @phone_numbers.each do |phone_number| %>
+        <tr>
+          <td><b>Phone <%= @index %>:</b></td>
+          <td><%= phone_number.full %> <small><%= phone_number.phtype %></small></td>
+        </tr>
+      <% @index += 1 %>
+      <% end %>
     </tbody>
   </table>
 </div>

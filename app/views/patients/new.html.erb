@@ -1,94 +1,151 @@
+<% content_for :navbar do %>
+  <div>
+    <nav>
+      <ul>
+        <li><a href="/patients">Patient Index</a></li>
+    </ul>
+    </nav>
+  </div>
+<% end %>
 <form accept-charset="UTF-8" action="/patients" class="new_patient" id="new_patient" method="post">
   <fieldset>
     <legend><span>Patient Information</span></legend>
     <label for="patient_fname">First Name: </label>
-    <input id="patient_fname" name="fname" size="25" type="text" autofocus />
+    <input id="patient_fname" name="patient[fname]" size="25" type="text" autofocus />
     <label for="patient_lname">Last Name: </label>
-    <input id="patient_lname" name="lname" size="25" type="text" />
+    <input id="patient_lname" name="patient[lname]" size="25" type="text" />
     <br />
     <label for="patient_dob">Date-of-Birth: </label>
-    <input id="patient_dob" name="dob" size="10" type="text" />
+    <input id="patient_dob" name="patient[dob]" size="10" type="date" />
     <label for="patient_gender">Gender: </label>
-    <input id="patient_gender" name="gender" size="1" type="text" list="gender" />
-    <datalist id="gender">
-      <option value="M">
-      <option value="F">
-    </datalist>
+    <input id="patient_gender" name="patient[gender]" size="1" type="radio" value="M" />Male
+    <input id="patient_gender" name="patient[gender]" size="1" type="radio" value="F" />Female
+    <br />
     <label for="patient_ssn">SSN: </label>
-    <input id="patient_ssn" name="ssn" size="9" type="text" />
-    <br />
+    <input id="patient_ssn" name="patient[ssn]" size="9" type="text" />
     <label for="patient_race">Race: </label>
-    <input id="patient_race" name="race" size="25" type="text" list="race" />
-    <datalist id="race">
-      <option value="Americoid">
-      <option value="Australoid">
-      <option value="Caucasoid">
-      <option value="Khoesanoid">
-      <option value="Negroid">
-      <option value="Sinoid">
-    </datalist>
+    <select name="patient[race]">
+      <option value="" selected>- Select -</option>
+      <option value="Americoid">Americoid</option>
+      <option value="Australoid">Australoid</option>
+      <option value="Caucasoid">Caucasoid</option>
+      <option value="Khoesanoid">Khoesanoid</option>
+      <option value="Negroid">Negroid</option>
+      <option value="Sinoid">Sinoid</option>
+    </select>
     <label for="patient_ethnicity">Ethnicity: </label>
-    <input id="patient_ethnicity" name="ethnicity" size="25" type="text" list="ethnicity" />
-    <datalist id="ethnicity">
-      <option value="African">
-      <option value="African American">
-      <option value="Alaskan">
-      <option value="Arabian">
-      <option value="Armenian">
-      <option value="Asian (Pacific)">
-      <option value="Bangladeshi">
-      <option value="Bulgarian">
-      <option value="Burmese">
-      <option value="Cambodian">
-      <option value="Chinese">
-      <option value="Czechoslovakian">
-      <option value="Danish">
-      <option value="Dutch">
-      <option value="East European">
-      <option value="English (British)">
-      <option value="Estonian">
-      <option value="Ethiopian">
-      <option value="French">
-      <option value="German">
-      <option value="Greek">
-      <option value="Hawaiian">
-      <option value="Hebrew">
-      <option value="Hispanic (Spanish)">
-      <option value="Hungarian">
-      <option value="Icelandic">
-      <option value="Indian">
-      <option value="Indonesian">
-      <option value="Irish">
-      <option value="Italian">
-      <option value="Japanese">
-      <option value="Korean">
-      <option value="Latvian">
-      <option value="Laotian">
-      <option value="Lithuanian">
-      <option value="Malaysian">
-      <option value="Manx">
-      <option value="Middle Eastern">
-      <option value="Native American">
-      <option value="Norwegian">
-      <option value="Pakistani">
-      <option value="Polish">
-      <option value="Portuguese">
-      <option value="Russian">
-      <option value="Samoan">
-      <option value="Scottish">
-      <option value="Sri Lankan">
-      <option value="Swedish">
-      <option value="Swiss">
-      <option value="Thai">
-      <option value="Turkish">
-      <option value="Ukrainian">
-      <option value="Vietnamese">
-      <option value="Welsh">
-      <option value="Yugoslavian">
-    </datalist>
+    <select name="patient[ethnicity]">
+      <option value="" selected>- Select -</option>
+      <option value="African">African</option>
+      <option value="African American">African American</option>
+      <option value="Alaskan">Alaskan</option>
+      <option value="Arabian">Arabian</option>
+      <option value="Armenian">Armenian</option>
+      <option value="Asian (Pacific)">Asian (Pacific)</option>
+      <option value="Bangladeshi">Bangladeshi</option>
+      <option value="Bulgarian">Bulgarian</option>
+      <option value="Burmese">Burmese</option>
+      <option value="Cambodian">Cambodian</option>
+      <option value="Chinese">Chinese</option>
+      <option value="Czechoslovakian">Czechoslovakian</option>
+      <option value="Danish">Danish</option>
+      <option value="Dutch">Dutch</option>
+      <option value="East European">East European</option>
+      <option value="English (British)">English (British)</option>
+      <option value="Estonian">Estonian</option>
+      <option value="Ethiopian">Ethiopian</option>
+      <option value="French">French</option>
+      <option value="German">German</option>
+      <option value="Greek">Greek</option>
+      <option value="Hawaiian">Hawaiian</option>
+      <option value="Hebrew">Hebrew</option>
+      <option value="Hispanic (Spanish)">Hispanic (Spanish)</option>
+      <option value="Hungarian">Hungarian</option>
+      <option value="Icelandic">Icelandic</option>
+      <option value="Indian">Indian</option>
+      <option value="Indonesian">Indonesian</option>
+      <option value="Irish">Irish</option>
+      <option value="Italian">Italian</option>
+      <option value="Japanese">Japanese</option>
+      <option value="Korean">Korean</option>
+      <option value="Latvian">Latvian</option>
+      <option value="Laotian">Laotian</option>
+      <option value="Lithuanian">Lithuanian</option>
+      <option value="Malaysian">Malaysian</option>
+      <option value="Manx">Manx</option>
+      <option value="Middle Eastern">Middle Eastern</option>
+      <option value="Native American">Native American</option>
+      <option value="Norwegian">Norwegian</option>
+      <option value="Pakistani">Pakistani</option>
+      <option value="Polish">Polish</option>
+      <option value="Portuguese">Portuguese</option>
+      <option value="Russian">Russian</option>
+      <option value="Samoan">Samoan</option>
+      <option value="Scottish">Scottish</option>
+      <option value="Sri Lankan">Sri Lankan</option>
+      <option value="Swedish">Swedish</option>
+      <option value="Swiss">Swiss</option>
+      <option value="Thai">Thai</option>
+      <option value="Turkish">Turkish</option>
+      <option value="Ukrainian">Ukrainian</option>
+      <option value="Vietnamese">Vietnamese</option>
+      <option value="Welsh">Welsh</option>
+      <option value="Yugoslavian">Yugoslavian</option>
+    </select>
     <br />
-    <input name="commit" type="submit" value="Create Patient" />
   </fieldset>
+  <fieldset>
+    <legend><span>Phone 1 Information</span></legend>
+    <label for="phone1_areacode">Area Code: </label>
+    <input id="phone1_areacode" name="patient[phone_numbers_attributes][][areacode]" size="3" type="text" />
+    <label for="phone1_prefix">Prefix: </label>
+    <input id="phone1_prefix" name="patient[phone_numbers_attributes][][prefix]" size="3" type="text" />
+    <label for="phone1_number">Number: </label>
+    <input id="phone1_number" name="patient[phone_numbers_attributes][][number]" size="4" type="text" />
+    <label for="phone1_extension">Extension: </label>
+    <input id="phone1_extension" name="patient[phone_numbers_attributes][][extension]" size="5" type="text" />
+    <label for="phone1_phtype">Type: </label>
+    <select name="patient[phone_numbers_attributes][][phtype]" required>
+      <option value="Home" selected>Home</option>
+      <option value="Office">Office</option>
+      <option value="Mobile">Mobile</option>
+    </select>
+  </fieldset>
+  <fieldset>
+    <legend><span>Phone 2 Information</span></legend>
+    <label for="phone2_areacode">Area Code: </label>
+    <input id="phone2_areacode" name="patient[phone_numbers_attributes][][areacode]" size="3" type="text" />
+    <label for="phone2_prefix">Prefix: </label>
+    <input id="phone2_prefix" name="patient[phone_numbers_attributes][][prefix]" size="3" type="text" />
+    <label for="phone2_number">Number: </label>
+    <input id="phone2_number" name="patient[phone_numbers_attributes][][number]" size="4" type="text" />
+    <label for="phone2_extension">Extension: </label>
+    <input id="phone2_extension" name="patient[phone_numbers_attributes][][extension]" size="5" type="text" />
+    <label for="phone2_phtype">Type: </label>
+    <select name="patient[phone_numbers_attributes][][phtype]" required>
+      <option value="Home">Home</option>
+      <option value="Office" selected>Office</option>
+      <option value="Mobile">Mobile</option>
+    </select>
+  </fieldset>
+  <fieldset>
+    <legend><span>Phone 3 Information</span></legend>
+    <label for="phone3_areacode">Area Code: </label>
+    <input id="phone3_areacode" name="patient[phone_numbers_attributes][][areacode]" size="3" type="text" />
+    <label for="phone3_prefix">Prefix: </label>
+    <input id="phone3_prefix" name="patient[phone_numbers_attributes][][prefix]" size="3" type="text" />
+    <label for="phone3_number">Number: </label>
+    <input id="phone3_number" name="patient[phone_numbers_attributes][][number]" size="4" type="text" />
+    <label for="phone3_extension">Extension: </label>
+    <input id="phone3_extension" name="patient[phone_numbers_attributes][][extension]" size="5" type="text" />
+    <label for="phone3_phtype">Type: </label>
+    <select name="patient[phone_numbers_attributes][][phtype]" required>
+      <option value="Home">Home</option>
+      <option value="Office">Office</option>
+      <option value="Mobile" selected>Mobile</option>
+    </select>
+  </fieldset>
+  <input name="commit" type="submit" value="Create Patient" />
 </form>
 
 
