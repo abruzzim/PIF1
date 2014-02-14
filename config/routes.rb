@@ -14,6 +14,7 @@ Pif1::Application.routes.draw do
 
   # Resource route (maps HTTP verbs to controller actions automatically):
   resources :patients
+  resources :phone_numbers
 
   # Sample resource route with options:
   #   resources :products do

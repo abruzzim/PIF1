@@ -1,0 +1,32 @@
+<% content_for :navbar do %>
+  <div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/phone_numbers">Phone Number Index</a></li>
+    </ul>
+    </nav>
+  </div>
+<% end %>
+
+<form accept-charset="UTF-8" action="/phone_numbers/<%= @phone_number.id %>" class="edit_phone_number" id="edit_phone_number" method="post">
+  <fieldset>
+    <legend><span>Phone Information</span></legend>
+    <input name="_method" type="hidden" value="put" />
+    <label for="phone_areacode">Area Code: </label>
+    <input id="phone_areacode" name="phone_number[areacode]" size="3" text="type" value="<%= @phone_number.areacode %>" />
+    <label for="phone_prefix">Prefix: </label>
+    <input id="phone_prefix" name="phone_number[prefix]" size="3" text="type" value="<%= @phone_number.prefix %>" />
+    <label for="phone_number">Number: </label>
+    <input id="phone_number" name="phone_number[number]" size="4" text="type" value="<%= @phone_number.number %>" />
+    <label for="phone_extension">Extension: </label>
+    <input id="phone_extension" name="phone_number[extension]" size="5" text="type" value="<%= @phone_number.extension %>" />
+    <select name="phone_number[phtype]" required>
+      <option value="<%= @phone_number.phtype %>" selected><%= @phone_number.phtype %></option>
+      <option value="Home">Home</option>
+      <option value="Office">Office</option>
+      <option value="Mobile">Mobile</option>
+    </select>
+  </fieldset>
+  <input name="commit" type="submit" value="Update Phone Number" />
+</form>

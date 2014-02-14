@@ -52,6 +52,14 @@ class Patient < ActiveRecord::Base
     [fname, lname].join(' ')
   end
 
+  def by_lname
+    [lname, fname].join(', ')
+  end
+
+  def by_lname_dob
+    [lname, fname, dob.iso8601].join(', ')
+  end
+
   def self.by_letter(letter)
     where("lname LIKE ?", "#{letter}%").order(:lname)
   end

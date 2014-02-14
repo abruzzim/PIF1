@@ -1,0 +1,45 @@
+<% content_for :navbar do %>
+  <div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/phone_numbers/new">Add Phone Number</a></li>
+    </ul>
+    </nav>
+  </div>
+<% end %>
+
+<h2>Phone Numbers Index</h2>
+<div>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Phone Number</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @phone_numbers.each do |phone_number| %>
+        <tr>
+          <td><%= phone_number.patient.lname %></td>
+          <td><%= phone_number.patient.fname %></td>
+          <td><%= phone_number.full %></td>
+          <td><%= phone_number.phtype %></td>
+          <td>
+            <form method="get" action="/phone_numbers/<%= phone_number.id %>/edit">
+              <button type="submit">Edit</button>
+            </form>
+          </td>
+          <td>
+            <form method="post" action="/phone_numbers/<%= phone_number.id %>">
+              <input name="_method" type="hidden" value="delete" />
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
